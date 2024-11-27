@@ -6,6 +6,8 @@ This repository is for setting myself challenges in languages I'm learning.
 ### Python:
 #### 1. Hangman: Play a game of hangman! 
 - To add: list of words chosen to avoid repeated words, a scoring feature.
+#### 2. Noughts and Crosses: Play a basic game of Noughts and Crosses
+- To add: add play again feature, make a harder version.
 ## Author
 Kisholi Perera-Merry (GitHub @kpmerry)
 ## Installation
