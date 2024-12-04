@@ -107,16 +107,6 @@ def generate_word(words):
     return random.choice(words)
 
 
-def main():
-    """Chooses difficulty and new word, returns game function."""
-    lives = choose_diff()
-
-    words = import_words("words.txt")
-    word = generate_word(words)
-
-    return hangman(word, lives)
-
-
 def play_again():
     """Lets player choose to play again."""
     ans = input("Would you like to play again? (Y/N): ")
@@ -133,6 +123,16 @@ def play_again():
         print("Yay!")
         time.sleep(DELAY)
         return main()
+
+
+def main():
+    """Chooses difficulty and new word, returns game function."""
+    lives = choose_diff()
+
+    words = import_words("words.txt")
+    word = generate_word(words)
+
+    return hangman(word, lives)
 
 
 if __name__ == "__main__":
