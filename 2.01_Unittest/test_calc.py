@@ -14,7 +14,7 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.add(5, -5), 0)
         self.assertEqual(calc.add(self.pos_num, self.neg_num), 0)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             calc.add("ab", "f")
 
     def test_subtract(self):
