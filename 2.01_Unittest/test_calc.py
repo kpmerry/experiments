@@ -41,6 +41,12 @@ class TestCalc(unittest.TestCase):
         with self.assertRaises(TypeError):
             calc.multiply("ab", "f")
 
+    def test_triangle_area(self):
+        self.assertEqual(calc.area_triangle(10, 5), 25)
+
+        with self.assertRaises(TypeError):
+            calc.area_triangle("ab", 3.4)
+
 
 if __name__ == "__main__":
     unittest.main()
