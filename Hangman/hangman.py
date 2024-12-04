@@ -2,14 +2,16 @@
 import random
 import time
 
+
 def import_words(filename):
     words = []
 
     with open(filename, "r") as file:
         for line in file:
             words.append(line.strip().lower())
-    
+
     return words
+
 
 def choose_diff():
     """Returns number of lives.
@@ -29,12 +31,14 @@ def choose_diff():
         no_lives = 4
     return no_lives
 
+
 def check_guess(word, guess):
     indexes = []
     for i in range(0, len(word)):
         if word[i] == guess:
             indexes.append(i)
     return indexes
+
 
 def hangman(word, lives):
     """Performs single game of hangman."""
@@ -75,7 +79,7 @@ def hangman(word, lives):
             continue
         for i in indexes:
             blank[i] = guess
-    
+
     # If player loses or wins.
     if lives == 0:
         print(f"Oops, you didn't guess the word was {word}, better luck next time!")
@@ -85,9 +89,11 @@ def hangman(word, lives):
         print(f"You had {lives} lives left!")
     return play_again()
 
+
 def generate_word(words):
     """Generates a random word from list."""
     return random.choice(words)
+
 
 def initialise():
     """Chooses difficulty and new word, returns game function."""
@@ -97,6 +103,7 @@ def initialise():
     word = generate_word(words)
 
     return hangman(word, lives)
+
 
 def play_again():
     """Lets player choose to play again."""
@@ -111,6 +118,7 @@ def play_again():
         exit
     print("Yay!")
     return initialise()
+
 
 print("Welcome to hangman!")
 
