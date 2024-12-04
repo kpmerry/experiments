@@ -4,6 +4,7 @@ import time
 
 
 def import_words(filename):
+    """Imports words for hangman."""
     words = []
 
     with open(filename, "r") as file:
@@ -14,9 +15,7 @@ def import_words(filename):
 
 
 def choose_diff():
-    """Returns number of lives.
-    Based on difficulty choice of player.
-    """
+    """Returns number of lives based on player's chosen difficulty."""
     diff = input("Choose a difficulty level from 1-3")
     # Assign and return no. of lives based on choice.
     valid = ["1", "2", "3"]
@@ -33,6 +32,7 @@ def choose_diff():
 
 
 def check_guess(word, guess):
+    """Finds indexes of guess in word. Returns empty if none."""
     indexes = []
     for i in range(0, len(word)):
         if word[i] == guess:
@@ -54,8 +54,7 @@ def hangman(word, lives):
         print(f"Your guesses so far: {", ".join(guesses)}")
         print(" ".join(blank))
 
-        guess = input("Guess a letter: ")
-        guess.lower()
+        guess = input("Guess a letter: ").lower()
 
         # Checks for invalid input guess.
         if guess in guesses:
@@ -95,7 +94,7 @@ def generate_word(words):
     return random.choice(words)
 
 
-def initialise():
+def main():
     """Chooses difficulty and new word, returns game function."""
     lives = choose_diff()
 
@@ -114,12 +113,13 @@ def play_again():
         return play_again()
     elif ans == "N":
         print("Thank you for playing!")
-        time.sleep(2)
+        time.sleep(1)
         exit
-    print("Yay!")
-    return initialise()
+    else:
+        print("Yay!")
+        return main()
 
 
-print("Welcome to hangman!")
-
-initialise()
+if __name__ == "__main__":
+    print("Welcome to hangman!")
+    main()
