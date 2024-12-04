@@ -1,14 +1,16 @@
 # Noughts and Crosses
 import random
 
+
 class Cell:
     def __init__(self, name, value="-"):
         self.name = name
         self.value = value
-    
+
     def __str__(self):
         return self.value
-        
+
+
 class Grid:
     # Change later to linked list?
     def __init__(self, cells):
@@ -18,11 +20,12 @@ class Grid:
         res = "\\  a b c \n__ _ _ _"
         for i in range(0, 7, 3):
             res += "\n"
-            res += str(i//3 + 1) + " |"
+            res += str(i // 3 + 1) + " |"
             res += self.cells[i].value + " "
-            res += self.cells[i+1].value + " "
-            res += self.cells[i+2].value
+            res += self.cells[i + 1].value + " "
+            res += self.cells[i + 2].value
         return res
+
 
 def player_turn(grid):
     pos = input("Enter your choice: ")
@@ -36,6 +39,7 @@ def player_turn(grid):
                 return player_turn(grid)
     return print(grid)
 
+
 def computer_turn(grid):
     pos2 = random.choice(empty_cell_names)
     for obj in pos_list:
@@ -44,32 +48,72 @@ def computer_turn(grid):
             empty_cell_names.remove(pos2)
     return print(grid)
 
+
 def did_player_win():
     # eight conditions for a player win
-    if a1.value == "X" and a2.value == "X" and a3.value == "X" or\
-        b1.value == "X" and b2.value == "X" and b3.value == "X" or\
-        c1.value == "X" and c2.value == "X" and c3.value == "X" or\
-        a1.value == "X" and b1.value == "X" and c1.value == "X" or\
-        a2.value == "X" and b2.value == "X" and c2.value == "X" or\
-        a3.value == "X" and b3.value == "X" and c3.value == "X" or\
-        a3.value == "X" and b2.value == "X" and c1.value == "X" or\
-        a1.value == "X" and b2.value == "X" and c3.value == "X":
-            return True
+    if (
+        a1.value == "X"
+        and a2.value == "X"
+        and a3.value == "X"
+        or b1.value == "X"
+        and b2.value == "X"
+        and b3.value == "X"
+        or c1.value == "X"
+        and c2.value == "X"
+        and c3.value == "X"
+        or a1.value == "X"
+        and b1.value == "X"
+        and c1.value == "X"
+        or a2.value == "X"
+        and b2.value == "X"
+        and c2.value == "X"
+        or a3.value == "X"
+        and b3.value == "X"
+        and c3.value == "X"
+        or a3.value == "X"
+        and b2.value == "X"
+        and c1.value == "X"
+        or a1.value == "X"
+        and b2.value == "X"
+        and c3.value == "X"
+    ):
+        return True
     else:
         return False
+
+
 def did_comp_win():
     # eight more for computer win
-    if a1.value == "O" and a2.value == "O" and a3.value == "O" or\
-        b1.value == "O" and b2.value == "O" and b3.value == "O" or\
-        c1.value == "O" and c2.value == "O" and c3.value == "O" or\
-        a1.value == "O" and b1.value == "O" and c1.value == "O" or\
-        a2.value == "O" and b2.value == "O" and c2.value == "O" or\
-        a3.value == "O" and b3.value == "O" and c3.value == "O" or\
-        a3.value == "O" and b2.value == "O" and c1.value == "O" or\
-        a1.value == "O" and b2.value == "O" and c3.value == "O":
-            return True
+    if (
+        a1.value == "O"
+        and a2.value == "O"
+        and a3.value == "O"
+        or b1.value == "O"
+        and b2.value == "O"
+        and b3.value == "O"
+        or c1.value == "O"
+        and c2.value == "O"
+        and c3.value == "O"
+        or a1.value == "O"
+        and b1.value == "O"
+        and c1.value == "O"
+        or a2.value == "O"
+        and b2.value == "O"
+        and c2.value == "O"
+        or a3.value == "O"
+        and b3.value == "O"
+        and c3.value == "O"
+        or a3.value == "O"
+        and b2.value == "O"
+        and c1.value == "O"
+        or a1.value == "O"
+        and b2.value == "O"
+        and c3.value == "O"
+    ):
+        return True
     else:
         return False
+
 
 a1 = Cell("a1")
 a2 = Cell("a2")
@@ -90,7 +134,7 @@ print("\nChoose a cell to place a cross.\n")
 
 count = 0
 
-global empty_cell_names 
+global empty_cell_names
 empty_cell_names = ["a1", "b1", "c1", "a2", "b2", "c2", "a3", "b3", "c3"]
 
 
