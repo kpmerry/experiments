@@ -3,12 +3,16 @@ import calc
 
 
 class TestCalc(unittest.TestCase):
+    def setUp(self):
+        self.pos_num = 1
+        self.neg_num = -1
 
     def test_add(self):
         self.assertEqual(calc.add(10, 5), 15)
         self.assertEqual(calc.add(-10, 5), -5)
         self.assertEqual(calc.add(-3, -5), -8)
         self.assertEqual(calc.add(5, -5), 0)
+        self.assertEqual(calc.add(self.pos_num, self.neg_num), 0)
 
         with self.assertRaises(ValueError):
             calc.add("ab", "f")
@@ -18,6 +22,9 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.subtract(10, -15), 25)
         self.assertEqual(calc.subtract(-15, 10), -25)
 
+        with self.assertRaises(TypeError):
+            calc.subtract("fm", 3)
+
     def test_divide(self):
         self.assertEqual(calc.divide(10, 2), 5)
         self.assertEqual(calc.divide(15, 2), 7.5)
@@ -25,9 +32,14 @@ class TestCalc(unittest.TestCase):
 
         with self.assertRaises(ZeroDivisionError):
             calc.divide(10, 0)
+        with self.assertRaises(TypeError):
+            calc.divide("ab", "f")
 
     def test_multiply(self):
         self.assertEqual(calc.multiply(10, 5), 50)
+
+        with self.assertRaises(TypeError):
+            calc.multiply("ab", "f")
 
 
 if __name__ == "__main__":
