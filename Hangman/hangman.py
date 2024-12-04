@@ -2,6 +2,8 @@
 import random
 import time
 
+DELAY = 0.5
+
 
 def import_words(filename):
     """Imports words for hangman."""
@@ -50,7 +52,8 @@ def hangman(word, lives):
 
     while ("_" in blank) and (lives > 0):
         # Print player statistics.
-        print(f"{lives} lives\tTurn no.{turn_count}")
+        time.sleep(DELAY)
+        print(f"\n{lives} lives\tTurn no.{turn_count}")
         print(f"Your guesses so far: {", ".join(guesses)}")
         print(" ".join(blank))
 
@@ -59,12 +62,15 @@ def hangman(word, lives):
         # Checks for invalid input guess.
         if guess in guesses:
             print("You've guessed that already!")
+            time.sleep(DELAY)
             continue
         if len(guess) != 1:
             print("Your guess should be a single letter only!")
+            time.sleep(DELAY)
             continue
         if not guess.isalpha():
             print("Your guess should contain a letter only!")
+            time.sleep(DELAY)
             continue
 
         turn_count += 1
@@ -73,19 +79,26 @@ def hangman(word, lives):
         indexes = check_guess(word, guess)
         if not indexes:
             print("Sorry, that guess was incorrect.")
-            print("Try again!")
             lives -= 1
+            if lives > 0:
+                print("Try again!")
+            time.sleep(DELAY)
             continue
+        print("Correct guess!")
+        time.sleep(DELAY)
         for i in indexes:
             blank[i] = guess
 
     # If player loses or wins.
     if lives == 0:
         print(f"Oops, you didn't guess the word was {word}, better luck next time!")
+        time.sleep(DELAY)
     else:
-        print(f"Well done!")
+        print(f"Well done!\n")
+        time.sleep(DELAY)
         print(f"You guessed {word} was the word in {turn_count} turns.")
-        print(f"You had {lives} lives left!")
+        print(f"You had {lives} lives left!\n")
+        time.sleep(DELAY)
     return play_again()
 
 
@@ -110,13 +123,15 @@ def play_again():
     valid = ["Y", "N"]
     if not ans in valid:
         print("Invalid input! 'Y' or 'N' please.")
+        time.sleep(DELAY)
         return play_again()
     elif ans == "N":
         print("Thank you for playing!")
-        time.sleep(1)
+        time.sleep(DELAY)
         exit
     else:
         print("Yay!")
+        time.sleep(DELAY)
         return main()
 
 
