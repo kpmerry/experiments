@@ -93,7 +93,6 @@ def hangman(word, lives, diff):
     # If player loses or wins.
     if lives == 0:
         print(f"Oops, you didn't guess the word was {word}, better luck next time!")
-        time.sleep(DELAY)
     else:
         print(f"Well done!\n")
         time.sleep(DELAY)
@@ -101,10 +100,10 @@ def hangman(word, lives, diff):
         print(f"You had {lives} lives left!\n")
         global score
         score += (26 - turn_count) * lives * int(diff)
-        print(
-            f"Game score: {(26 - turn_count) * lives * int(diff)}\t\tTotal score: {score}"
-        )
-        time.sleep(DELAY)
+    print(
+        f"Game score: {(26 - turn_count) * lives * int(diff)}\t\tTotal score: {score}\n"
+    )
+    time.sleep(DELAY)
     return play_again()
 
 
@@ -127,6 +126,7 @@ def play_again():
         return play_again()
     elif ans.upper() == "N":
         print("Thank you for playing!")
+        print(f"\nTotal Score: {score}")
         time.sleep(DELAY)
         exit
     else:
