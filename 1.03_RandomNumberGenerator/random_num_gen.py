@@ -11,6 +11,18 @@ def simple_random():
     return print(f"Your number: {random.randint(low, high)}")
 
 
+def random_multiple():
+    print("Random Multiple Generator will generate a random multiple for you!")
+    low = int(input("Choose the lowest number you want: "))
+    high = int(input("Choose the highest number you want: "))
+    mult = int(input("Choose the multiple you want!"))
+    if low % mult != 0:
+        low = (low // mult) + mult
+    if high % mult == 0:
+        high += 1
+    return print(f"Your random multiple is {random.randrange(low, high, mult)}!")
+
+
 def random_choice():
     print("Random choice will pick a random element from a list you enter!")
     choices = input("Add the list of elements separated by a space: ")
@@ -52,7 +64,7 @@ def countdown_numbers():
 
 def main():
     print("Welcome to the Random Number Generator!")
-    return countdown_letters()
+    return random_multiple()
 
 
 if __name__ == "__main__":
