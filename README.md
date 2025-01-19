@@ -21,7 +21,7 @@ Play a basic game of Noughts and Crosses on a 3x3 grid.
 #### 3. Random Number Generator
 Experimenting with making different random generators.
 
-### Features:
+### Modules:
 
 #### 1. Unittest: 
 Experimenting with unittest module
@@ -30,6 +30,9 @@ Experimenting with unittest module
 
 #### 2. Pytest
 *Upcoming*
+
+#### 3. Pandas
+Using Pandas for data visualisation and creating tables.
 
 ## Author
 Kisholi Perera-Merry (GitHub @kpmerry)
