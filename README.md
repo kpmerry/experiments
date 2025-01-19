@@ -6,7 +6,7 @@ This repository is for setting myself challenges in languages I'm learning.
 
 ## Contents of Repo
 
-### Python:
+### Python Challenges:
 
 #### 1. Hangman: 
 Play a game of hangman, with a score feature and choice of difficulty.
@@ -21,7 +21,7 @@ Play a basic game of Noughts and Crosses on a 3x3 grid.
 #### 3. Random Number Generator
 Experimenting with making different random generators.
 
-### Modules:
+### Python Modules:
 
 #### 1. Unittest: 
 Experimenting with unittest module
@@ -32,7 +32,9 @@ Experimenting with unittest module
 *Upcoming*
 
 #### 3. Pandas
-Using Pandas for data visualisation and creating tables.
+Using Pandas for data visualisation and creating tables. (Note: Requires install of pandas and csv)
+- [spending.py](/2.03_Pandas/spending.py): creating tables with mock data
+- [form_file.py](/2.03_Pandas/from_file.py): creating tables from CSV files
 
 ## Author
 Kisholi Perera-Merry (GitHub @kpmerry)
