@@ -3,24 +3,29 @@ import numpy as np
 
 
 # Functions for showing Series of spending:
-def monthly_spending(month_expenses):
-    global m_spending
-    m_spending = {}
-    for c, a in month_expenses:
+def spending_periodically(period_expenses):
+    """Shows spending categories for a period of spending."""
+    unindexed_expenses = []
+    for key in period_expenses:
+        unindexed_expenses += period_expenses[key]
+    global periodical_spending
+    periodical_spending = {}
+    for c, a in unindexed_expenses:
         spend(c, a)
-    return show_spending(m_spending)
+    return show_spending(periodical_spending)
 
 
 def spend(category: str, amount: int):
     """Adds an expense to a category for a series."""
-    global m_spending
-    if category in m_spending:
-        m_spending[category] += amount
+    global periodical_spending
+    if category in periodical_spending:
+        periodical_spending[category] += amount
     else:
-        m_spending[category] = amount
+        periodical_spending[category] = amount
 
 
 def show_spending(spending):
+    """Shows spending as a series of data."""
     count = 0
     for category in spending:
         count += spending[category]
@@ -29,7 +34,17 @@ def show_spending(spending):
 
 
 # Functions for showing a Data Frame of spending by month.
-def spend_monthly(expenses: list[tuple]):
+def show_spending_indexed(expense_dict: dict):
+    all_expenses = []
+    indexes = []
+    for key in expense_dict:
+        indexes.append(key)
+        all_expenses += add_index(expense_dict[key], key)
+    return pd.DataFrame(spend_with_index(all_expenses), index=indexes)
+
+
+def spend_with_index(expenses: list[tuple]):
+    """Show spendings with categories and an index, such as Month."""
     spending = {}
     for c, a, m in expenses:
         if not c in spending:
@@ -41,11 +56,11 @@ def spend_monthly(expenses: list[tuple]):
     return spending
 
 
-def add_month(expenses: list[tuple], month: str):
-    month_expenses = []
+def add_index(expenses: list[tuple], index: str):
+    indexed_expenses = []
     for c, a in expenses:
-        month_expenses.append((c, a, month))
-    return month_expenses
+        indexed_expenses.append((c, a, index))
+    return indexed_expenses
 
 
 def main():
@@ -72,14 +87,12 @@ def main():
         ("Groceries", 12.32),
     ]
 
-    jan = add_month(jan_spend, "Jan")
-    feb = add_month(feb_spend, "Feb")
-    quarterly_spending = spend_monthly(jan + feb)
+    total_spending = {"Jan": jan_spend, "Feb": feb_spend}
 
-    print("\nSpending in January:")
-    print(monthly_spending(jan_spend))
     print("\nSpending Overall:")
-    print(pd.DataFrame(quarterly_spending, index=["Jan", "Feb"]))
+    print(spending_periodically(total_spending))
+    print("\nSpending By Month:")
+    print(show_spending_indexed(total_spending))
 
 
 if __name__ == "__main__":
