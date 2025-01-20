@@ -21,6 +21,9 @@ Play a basic game of Noughts and Crosses on a 3x3 grid.
 #### 3. Random Number Generator
 Experimenting with making different random generators.
 
+#### 4. Flashcards
+A program to revise a language with flashcards or multiple choice questions, based on a csv file of vocabulary (example with English to Norwegian vocabulary).
+
 ### Python Modules:
 
 #### 1. Unittest: 
@@ -42,6 +45,7 @@ Kisholi Perera-Merry (GitHub @kpmerry)
 ## Installation
 - Clone the repository.
 - Install Python.
+- Install dependencies
 
 ## License
 This project is licensed under the [MIT License](LICENSE)
