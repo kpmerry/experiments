@@ -13,6 +13,7 @@ This repository is for setting myself challenges in languages I'm learning.
 |2|[Noughts and Crosses](/1.02_NoughtsAndCrosses/noughtsandcrosses.py)|Play a basic game of Noughts and Crosses on a 3x3 grid.| 
 |3|[Random Number Generator](/1.03_RandomNumberGenerator/random_num_gen.py)|Experimenting with making different random generators, including for the setup for a game of Countdown.|
 |4|[Flashcards](/1.04_Flashcards/norsk.py)|A program to revise a language with flashcards or multiple choice questions, based on a csv file of vocabulary (example with English to Norwegian vocabulary).|
+|5|[Graph Analysis](/1.05_TopologyGraphs/network.py)|Looking at graph analysis in network toplogy.|
 
 ### Python Modules:
 |Num|Experiment|Description|
