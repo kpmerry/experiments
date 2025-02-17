@@ -15,12 +15,17 @@ This repository is for setting myself challenges in languages I'm learning.
 |4|[Flashcards](/1.04_Flashcards/norsk.py)|A program to revise a language with flashcards or multiple choice questions, based on a csv file of vocabulary (example with English to Norwegian vocabulary).|
 |5|[Graph Analysis](/1.05_TopologyGraphs/network.py)|Looking at graph analysis in network toplogy.|
 
-### Python Modules:
+### Modules and Libraries:
 |Num|Experiment|Description|
 |---|---|---|
 |1|[Unittest](/2.01_Unittest/)|Experimenting with unittest module for function testing.|
 |2|[Pytest](/2.02_Pytest/)|*Upcoming*|
 |3|[Pandas](/2.03_Pandas/)|Using Pandas for data visualisation and creating tables, including importing from csv files.|
+
+### Java Challenges:
+|Num|Experiment|Description|
+|---|---|---|
+|1|[Dice Roll](/3.01_DiceRoll/)|Using Java to model a dice roll of a number of dice.|
 
 ## Author
 Kisholi Perera-Merry (GitHub @kpmerry)
