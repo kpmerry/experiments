@@ -6,18 +6,22 @@ public class Main {
         } else {
             diceNo = parseArgs(args);
         }
-        Hand h = new Hand(diceNo);
-        h.roll();
-        System.out.print(h);
+        rollHand(diceNo);
     }
 
-    public static int parseArgs(String[] args) {
+    private static int parseArgs(String[] args) {
         int diceNo = 1;
         try {
             diceNo = Integer.parseInt(args[0]);
         } catch (Exception e) {
-            System.out.println("Assuming 1 die.");
+            System.out.println("No dice number data found - assuming 1 die.");
         }
         return diceNo;
+    }
+
+    private static void rollHand(int diceNo) {
+        Hand h = new Hand(diceNo);
+        h.roll();
+        System.out.print(h);
     }
 }
