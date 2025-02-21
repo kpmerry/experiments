@@ -10,10 +10,12 @@ abstract class CardContainer {
 
     public void revealCards() {
         StringBuffer s = new StringBuffer();
+        s.append("\n ================= \n");
         for (Card c : cards) {
             s.append(new StringBuffer(c.toString()));
             s.append("\n");
         }
+        s.append(" ================= \n");
         System.out.println(s);
     }
 
@@ -63,6 +65,14 @@ abstract class CardContainer {
         for (Card c : cards) {
             c.hidden = false;
         }
+    }
+
+    protected void hideCard(int index) {
+        cards.get(index).hidden = true;
+    }
+
+    public void unhideCard(int index) {
+        cards.get(index).hidden = false;
     }
 
 }

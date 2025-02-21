@@ -10,8 +10,13 @@ class Card {
     }
 
     public String toString() {
+        if (hidden == true) {
+            return "< --- hidden card --- >";
+        }
         return "< " + suit + " : " + rank + " >";
     }
+
+    // Getter methods.
 
     public String getRank() {
         return rank;

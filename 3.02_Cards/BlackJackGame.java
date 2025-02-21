@@ -61,7 +61,7 @@ class BlackJackGame extends CardGame {
         compHand.fancyPrint();
         playHand.fancyPrint();
 
-        typingEffect(" ---- RESULTS ---- \n");
+        typingEffect(" ---- RESULTS ---- ");
         System.out.printf("Player : %s\nComputer : %s", getHandValue(playHand),
                 getHandValue(compHand));
         if ((getHandValue(compHand) <= 21)
