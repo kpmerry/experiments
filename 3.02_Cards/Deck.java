@@ -14,6 +14,6 @@ public class Deck extends CardContainer {
     }
 
     public String toString() {
-        return "< Deck " + cards.size() + " >";
+        return "< Deck : " + cards.size() + " >";
     }
 }

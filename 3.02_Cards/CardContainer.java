@@ -22,8 +22,13 @@ abstract class CardContainer {
     }
 
     private Card removeCard() {
-        Card c = cards.remove(cards.size() - 1);
-        return c;
+        try {
+            Card c = cards.remove(cards.size() - 1);
+            return c;
+        } catch (Exception e) {
+            System.out.println("Card not found");
+            return null;
+        }
     }
 
     protected void drawCardFrom(CardContainer cc) {
