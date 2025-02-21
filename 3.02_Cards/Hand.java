@@ -31,9 +31,10 @@ public class Hand extends CardContainer {
     }
 
     public void fancyPrint() {
+        // Print cards with a nice visual.
         StringBuffer s = new StringBuffer();
         try {
-            s.append("\t\t" + playerName + "\n");
+            s.append("\t" + playerName + "\n");
         } catch (Exception e) {
         }
         s.append("++===========++  ".repeat(cards.size()));

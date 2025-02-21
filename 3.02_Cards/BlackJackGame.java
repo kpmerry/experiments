@@ -10,15 +10,16 @@ class BlackJackGame extends CardGame {
     private long speed;
 
     public BlackJackGame() {
-        super("Black Jack");
-        compHand = new Hand();
-        playHand = new Hand();
+        super("Black Jack!");
+        compHand = new Hand("Computer");
+        playHand = new Hand("Player");
         d = new Deck();
         d.shuffleCards();
         playHand.drawCardFrom(d, 2);
         compHand.drawCardFrom(d, 2);
         compHand.hideCards();
         rankVals = new HashMap<String, Integer>();
+        // Add values to the hashmap.
         initRankvals();
         in = new Scanner(System.in);
         speed = 500;
@@ -46,6 +47,8 @@ class BlackJackGame extends CardGame {
         // Player has their turn.
         while (getHandValue(playHand) <= 21) {
             showTable();
+            pause(speed * 2);
+            // Player chooses when hand is complete.
             if (drawAnother()) {
                 playHand.drawCardFrom(d);
             } else {
@@ -57,16 +60,18 @@ class BlackJackGame extends CardGame {
             // Dealer has their turn.
             dealersTurn(compHand);
         }
+        // Display cards.
         compHand.unhideCards();
-        compHand.fancyPrint();
-        playHand.fancyPrint();
+        showTable();
 
         typingEffect(" ---- RESULTS ---- ");
-        System.out.printf("Player : %s\nComputer : %s", getHandValue(playHand),
-                getHandValue(compHand));
-        if ((getHandValue(compHand) <= 21)
-                && ((getHandValue(playHand) > 21)
-                        || (getHandValue(compHand) > getHandValue(playHand)))) {
+        int playerScore = getHandValue(playHand);
+        int dealerScore = getHandValue(compHand);
+        System.out.printf("%s\n%s", playerScore, dealerScore);
+
+        // Determine win, loss, or draw for the player.
+        if ((getHandValue(compHand) <= 21) && ((getHandValue(playHand) > 21)
+                || (getHandValue(compHand) > getHandValue(playHand)))) {
             loseGame();
         } else if ((getHandValue(playHand) <= 21)
                 && ((getHandValue(playHand) > getHandValue(compHand))
@@ -79,19 +84,20 @@ class BlackJackGame extends CardGame {
 
     private void showTable() {
         pause(speed);
-        System.out.print("Computer :\n");
         compHand.fancyPrint();
         pause(speed);
-        System.out.print("Player :\n");
         playHand.fancyPrint();
         pause(speed);
-        System.out.println("Your hand's value : " + getHandValue(playHand));
+        System.out.println("Your hand's value : " + getHandValue(playHand) + "\n");
 
     }
 
     private boolean drawAnother() {
-        String question = "\nYour current score is %s.\nDraw another card?(Y/N) : ";
-        System.out.printf(question, getHandValue(playHand));
+        String question1 = "\nYour current score is %s.";
+        String question2 = "\nDraw another card?(Y/N) : ";
+        System.out.printf(question1, getHandValue(playHand));
+        pause(speed);
+        typingEffect(question2);
         String ans = in.nextLine().strip().toLowerCase();
         if (ans.equalsIgnoreCase("y")) {
             return true;
