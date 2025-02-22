@@ -8,19 +8,22 @@ public class CardGame {
     public void startGame() {
         System.out.print("\n");
         typingEffect(" ---- GAME START ---- ");
-        // System.out.printf("\n%s\n\n\n", gameName);
+        System.out.print("\n");
     }
 
     protected void winGame() {
-        typingEffect("\nYOU WIN\nWell done player! ");
+        typingEffect("YOU WIN ");
+        typingEffect("Well done player!");
     }
 
     protected void loseGame() {
-        typingEffect("\nYOU LOSE\nBetter luck next time :( ");
+        typingEffect("YOU LOSE ");
+        typingEffect("Better luck next time :(");
     }
 
     protected void drawGame() {
-        typingEffect("\nYOU DRAW\nSeems like you're on par with the comp today! ");
+        typingEffect("YOU DRAW ");
+        typingEffect("Seems like you're on par today!");
     }
 
     protected void pause(long ms) {
@@ -35,8 +38,9 @@ public class CardGame {
     }
 
     protected void typingEffect(String s) {
-        for (int i = 1; i < s.length(); i++) {
-            System.out.print(s.substring(i - 1, i));
+        // Print each single-letter substring with delay.
+        for (int i = 0; i < s.length(); i++) {
+            System.out.print(s.substring(i, i + 1));
             pause(40);
         }
         System.out.print("\n");
