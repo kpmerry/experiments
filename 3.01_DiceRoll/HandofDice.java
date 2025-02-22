@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Hand {
+public class HandofDice {
     int size;
     ArrayList<Dice> diceInHand;
 
-    public Hand(int inSize) {
+    public HandofDice(int inSize) {
         size = inSize;
         diceInHand = new ArrayList<>();
         for (int i = 0; i < size; i++) {
@@ -13,7 +13,7 @@ public class Hand {
         }
     }
 
-    public Hand() {
+    public HandofDice() {
         size = 1;
         Dice d = new Dice();
         diceInHand.add(d);

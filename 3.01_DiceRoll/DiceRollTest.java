@@ -1,4 +1,4 @@
-public class Main {
+public class DiceRollTest {
     public static void main(String[] args) {
         int diceNo;
         if (args == null) {
@@ -20,7 +20,7 @@ public class Main {
     }
 
     private static void rollHand(int diceNo) {
-        Hand h = new Hand(diceNo);
+        HandofDice h = new HandofDice(diceNo);
         h.roll();
         System.out.print(h);
     }
