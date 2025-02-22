@@ -9,13 +9,14 @@ abstract class CardContainer {
     }
 
     public void revealCards() {
+        String separator = " ================= \n";
         StringBuffer s = new StringBuffer();
-        s.append("\n ================= \n");
+        s.append("\n" + separator);
         for (Card c : cards) {
-            s.append(new StringBuffer(c.toString()));
+            s.append(c.toString());
             s.append("\n");
         }
-        s.append(" ================= \n");
+        s.append(separator);
         System.out.println(s);
     }
 

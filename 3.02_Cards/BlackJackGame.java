@@ -10,21 +10,18 @@ class BlackJackGame extends CardGame {
     private long speed;
 
     public BlackJackGame() {
-        super("Black Jack!");
+        super("Black Jack");
         // Initialise class attributes.
         rankVals = new HashMap<String, Integer>();
         compHand = new Hand("Computer");
         playHand = new Hand("Player");
         in = new Scanner(System.in);
         d = new Deck();
-        // Prepare deck and players' hands.
-        d.shuffleCards();
-        playHand.drawCardFrom(d, 2);
-        compHand.drawCardFrom(d, 2);
-        compHand.hideCards();
-        // Add values to the hashmap.
-        initRankvals();
         speed = 500;
+        // Prepare deck and players' hands.
+        dealHands();
+        // Add initialise hashmap.
+        initRankvals();
     }
 
     private void initRankvals() {
@@ -36,6 +33,13 @@ class BlackJackGame extends CardGame {
         }
     }
 
+    private void dealHands() {
+        d.shuffleCards();
+        playHand.drawCardFrom(d, 2);
+        compHand.drawCardFrom(d, 2);
+        compHand.hideCards();
+    }
+
     public Hand getPlayHand() {
         return playHand;
     }
@@ -44,7 +48,13 @@ class BlackJackGame extends CardGame {
         return compHand;
     }
 
-    public void gamePlay() {
+    public void playGame() {
+        startGame();
+        gamePlay();
+        endGame();
+    }
+
+    private void gamePlay() {
         // Show one card of dealer's hand.
         compHand.unhideCard(0);
         // Player has their turn.
@@ -59,15 +69,15 @@ class BlackJackGame extends CardGame {
             }
         }
         pause(1000);
+
+        // If player hasn't lost, dealer has their turn.
         if (getHandValue(playHand) <= 21) {
-            // Dealer has their turn.
             dealersTurn(compHand);
         }
-        // Display cards.
+
+        // Display final result.
         compHand.unhideCards();
         showTable();
-
-        // Reveal final hand values.
         typingEffect(" ---- RESULTS ---- ");
         int playScore = getHandValue(playHand);
         int compScore = getHandValue(compHand);
@@ -102,9 +112,9 @@ class BlackJackGame extends CardGame {
 
         // Check player's answer.
         String ans = in.nextLine().strip().toLowerCase();
-        if (ans.equalsIgnoreCase("y")) {
+        if (ans.equals("y")) {
             return true;
-        } else if (ans.equalsIgnoreCase("n")) {
+        } else if (ans.equals("n")) {
             return false;
         }
         return drawAnother();

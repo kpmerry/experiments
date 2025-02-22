@@ -16,8 +16,6 @@ class Card {
         return "< " + suit + " : " + rank + " >";
     }
 
-    // Getter methods.
-
     public String getRank() {
         return rank;
     }
