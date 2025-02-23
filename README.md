@@ -27,6 +27,7 @@ This repository is for setting myself challenges in languages I'm learning.
 |---|---|---|
 |1|[Dice Roll](/3.01_DiceRoll/)|Using Java to model a dice roll of a number of dice.|
 |2|[Cards](/3.02_Cards/)|Simulating different functionality of cardgames, including cards, decks and hands.|
+|3|[Calculator](/3.03_Calculator/)|Creating a command line calculator application.|
 
 ## Author
 Kisholi Perera-Merry (GitHub @kpmerry)
