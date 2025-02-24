@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-class BlackJackGame extends CardGame {
+class BlackJackGame extends CardGame implements StandardDeck {
     private Deck d;
     private Hand compHand;
     private Hand playHand;
@@ -25,7 +25,6 @@ class BlackJackGame extends CardGame {
     }
 
     private void initRankvals() {
-        final String[] RANKS = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
         final int[] VALS = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
         // Add ranks and vals to the hashmap.
         for (int i = 0; i < 13; i++) {

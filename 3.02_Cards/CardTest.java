@@ -5,9 +5,7 @@ public class CardTest {
 
     public static void playBlackJack() {
         BlackJackGame game = new BlackJackGame();
-        game.startGame();
-        game.gamePlay();
-        game.endGame();
+        game.playGame();
     }
 
     public static void testCards() {
