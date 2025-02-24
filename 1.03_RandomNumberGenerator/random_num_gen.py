@@ -50,9 +50,9 @@ def countdown_letters():
             letter = random.choice(ALPHABET)
         letters.append(letter)
     print(f"Your letters are: {letters}")
-    for i in range(30, 0, -1):
+    for i in range(30, -1, -5):
         print(i)
-        time.sleep(1)
+        time.sleep(5)
     print("Times up!!")
     return
 
@@ -64,7 +64,7 @@ def countdown_numbers():
 
 def main():
     print("Welcome to the Random Number Generator!")
-    return random_multiple()
+    return countdown_letters()
 
 
 if __name__ == "__main__":
