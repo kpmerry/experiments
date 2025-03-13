@@ -46,6 +46,7 @@ public class CardGame {
 
     public void endGame() {
         System.out.println("\n ---- GAME OVER ---- \n");
+        pause(1000);
     }
 
     protected void typingEffect(String s) {
