@@ -4,7 +4,7 @@ public class Hand extends CardContainer {
     protected String playerName;
 
     public Hand() {
-        cards = new ArrayList<Card>();
+        init();
     }
 
     public Hand(String inName) {
