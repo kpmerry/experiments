@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class SolitaireColumn extends CardContainer {
     private int columnIdentifier;
 
+    public SolitaireColumn() {
+        cards = new ArrayList<>();
+    }
+
     public SolitaireColumn(int inColumnIdentifier) {
         cards = new ArrayList<>();
         columnIdentifier = inColumnIdentifier;
