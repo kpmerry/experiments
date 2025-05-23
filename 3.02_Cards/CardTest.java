@@ -1,11 +1,35 @@
+import java.util.Scanner;
+
 public class CardTest {
     public static void main(String[] args) {
         playBlackJack();
     }
 
+    public static void playSolitaire() {
+        SolitaireGame s = new SolitaireGame();
+        s.gamePlay();
+
+    }
+
+    public static void chooseGame() {
+        try (Scanner in = new Scanner(System.in)) {
+            String question = "Play another game of Black Jack? (Y/N) : ";
+            System.out.println(question);
+            String ans = in.nextLine().strip().toLowerCase();
+            if (ans.equals("y")) {
+                playBlackJack();
+            } else {
+                System.exit(0);
+            }
+        } catch (Exception e) {
+            e.setStackTrace(null);
+        }
+    }
+
     public static void playBlackJack() {
         BlackJackGame game = new BlackJackGame();
         game.playGame();
+        chooseGame();
     }
 
     public static void testCards() {
