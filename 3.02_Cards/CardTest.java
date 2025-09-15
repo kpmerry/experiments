@@ -2,13 +2,12 @@ import java.util.Scanner;
 
 public class CardTest {
     public static void main(String[] args) {
-        playBlackJack();
+        playSolitaire();
     }
 
     public static void playSolitaire() {
         SolitaireGame s = new SolitaireGame();
         s.gamePlay();
-
     }
 
     public static void chooseGame() {

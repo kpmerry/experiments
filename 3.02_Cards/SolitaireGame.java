@@ -64,6 +64,7 @@ public class SolitaireGame extends CardGame implements StandardDeck {
         d.dealCardTo(col5);
         d.dealCardTo(col6);
         d.dealCardTo(col7);
+        // Rest of deck goes to stockpile cards.
         d.dealCardTo(stockpile, d.cards.size());
     }
 
@@ -71,6 +72,16 @@ public class SolitaireGame extends CardGame implements StandardDeck {
         startGame();
         showBoard();
         showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        showBoard();
+        stockpile.revealCards();
     }
 
     public void showBoard() {

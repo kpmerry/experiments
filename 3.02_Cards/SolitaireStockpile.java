@@ -13,12 +13,26 @@ public class SolitaireStockpile extends CardContainer implements StandardDeck {
             wastePileCards.hideCards();
         }
         for (int i = 0; i < 3; i++) {
-            wastePileCards.addCard(cards.remove(i));
+            try {
+                wastePileCards.addCard(cards.remove(i));
+            } catch (IndexOutOfBoundsException e) {
+                break;
+            }
         }
     }
 
     public void revealStockPile() {
-        wastePileCards.condensedFancyPrint();
+        Hand shownCards = new Hand("Wastepile");
+        for (Card c : wastePileCards.cards) {
+            if (!c.hidden) {
+                shownCards.addCard(c);
+            }
+        }
+        shownCards.condensedFancyPrint();
         System.out.println("\n");
+        for (Card c : shownCards.cards) {
+            this.cards.add(c);
+        }
+        wastePileCards.unhideCards();
     }
 }
